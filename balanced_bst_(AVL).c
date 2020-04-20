@@ -83,7 +83,7 @@ node *rotate(node *root)
     }
     else
     {
-      left_rotate(root->right);
+      root->right = left_rotate(root->right);
       return right_rotate(root);
     }
   }
@@ -95,7 +95,7 @@ node *rotate(node *root)
     }
     else
     {
-      right_rotate(root->left);
+      root->left = right_rotate(root->left);
       return left_rotate(root);
     }
   }
