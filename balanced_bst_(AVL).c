@@ -18,7 +18,7 @@ node *create_node(int key)
   new_node->key = key;
   new_node->left = NULL;
   new_node->right = NULL;
-  new_node->height = 1;
+  new_node->height = 0;
   return new_node;
 }
 
@@ -26,7 +26,7 @@ int height(node *root)
 {
   if(!root)
   {
-    return 0;
+    return -1;
   }
   return root->height;
 }
