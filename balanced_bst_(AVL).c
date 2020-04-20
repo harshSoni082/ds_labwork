@@ -72,31 +72,31 @@ node *left_rotate(node *root)
   return new_root;
 }
 
-void rotate(node *root)
+node *rotate(node *root)
 {
   int unbalanced = height_difference(root);
   if(unbalanced > 1)
   {
     if(height_difference(root->left) > 0)
     {
-      right_rotate(root);
+      return right_rotate(root);
     }
     else
     {
       left_rotate(root->right);
-      right_rotate(root);
+      return right_rotate(root);
     }
   }
   else if(unbalanced < -1)
   {
     if(height_difference(root->right) < 0)
     {
-      left_rotate(root);
+      return left_rotate(root);
     }
     else
     {
       right_rotate(root->left);
-      left_rotate(root);
+      return left_rotate(root);
     }
   }
 }
@@ -119,7 +119,7 @@ node *insert(node *root, int key)
     }
   }
   root->height = update_height(root);
-  rotate(root);
+  root = rotate(root);
   return root;
 }
 
