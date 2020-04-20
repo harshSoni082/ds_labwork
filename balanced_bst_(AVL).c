@@ -99,6 +99,7 @@ node *rotate(node *root)
       return left_rotate(root);
     }
   }
+  return root;
 }
 
 node *insert(node *root, int key)
